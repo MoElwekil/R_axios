@@ -5,20 +5,24 @@ import Axios from 'axios'
 import SearchBar from './SearchBar'
 
 class App extends Component {
+    // state
+    state = {images: []}
 
-    searchTerm(e){
-        Axios.get('https://api.unsplash.com/search/photos?', {
+    searchTerm = async (e) =>{
+        const response = await Axios.get('https://api.unsplash.com/search/photos?', {
             params: {query: e},
             headers: {
                 Authorization: 'Client-ID mEy5zYt77kML0SjBahkBthvxieunPVLZf8FyttVEUB8'
             }
         })
-    }
+        this.setState({images: response.data.results})
+    };
 
     render(){
         return (
             <div className="container" style={{marginTop:40}}>
                 <SearchBar onSubmit={this.searchTerm} />
+                Found: {this.state.images.length}
             </div>
         )
     }
