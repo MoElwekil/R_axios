@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Axios from 'axios'
 
 // Components
 import SearchBar from './SearchBar'
@@ -6,7 +7,12 @@ import SearchBar from './SearchBar'
 class App extends Component {
 
     searchTerm(e){
-        console.log(e)
+        Axios.get('https://api.unsplash.com/search/photos?', {
+            params: {query: e},
+            headers: {
+                Authorization: 'Client-ID mEy5zYt77kML0SjBahkBthvxieunPVLZf8FyttVEUB8'
+            }
+        })
     }
 
     render(){
