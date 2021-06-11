@@ -6,7 +6,7 @@ class SearchBar extends Component {
 
     onSearch = (e) => {
         e.preventDefault();
-        console.log(this.state.keyword)
+        this.props.onSubmit(this.state.keyword)
     }
 
 
