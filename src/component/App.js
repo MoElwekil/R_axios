@@ -5,7 +5,7 @@ import SearchBar from './SearchBar'
 
 const App = () => {
     return (
-        <div>
+        <div className="container" style={{marginTop:40}}>
             <SearchBar />
         </div>
     )
